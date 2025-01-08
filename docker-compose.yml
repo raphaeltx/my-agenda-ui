@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3007:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
