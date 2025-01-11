@@ -34,18 +34,12 @@ My Agenda UI is a React-based user interface for managing your agenda. It includ
 ```
 my-agenda-ui/
 ├── src/
+│   ├── assets/
 │   ├── components/
-│   │   ├── chat-bot/
-│   │   │   ├── ChatBot.tsx
-│   │   │   ├── ChatBot.css
-│   │   ├── chat-bot-input-field/
-│   │   │   ├── ChatBotInputField.tsx
-│   │   │   ├── ChatBotInputField.css
-│   │   │   ├── ChatBotInputField.types.ts
+│   ├── context/
+│   ├── pages/
+│   ├── services/
 │   ├── translations/
-│   │   ├── en.json
-│   │   ├── pt.json
-│   │   ├── intlConfig.ts
 │   ├── index.tsx
 │   ├── App.tsx
 ├── .prettierrc
