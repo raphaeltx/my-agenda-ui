@@ -1,6 +1,6 @@
 # My Agenda UI
 
-My Agenda UI is a React-based user interface for managing your agenda. It includes a chat bot for interacting with users. The user can add comments, texts, insights, register appointments, events just like an personal daybook.
+My Agenda UI is a React-based user interface to help you manage your daily agenda. With an integrated chat bot assistant, users can interact seamlessly to add comments, texts, insights, register appointments, and schedule events. This application functions as a personal daybook, providing a solution for organizing your day-to-day activities as a chat bot.
 
 ## Features
 
@@ -21,7 +21,7 @@ My Agenda UI is a React-based user interface for managing your agenda. It includ
     yarn install
 
 ## Usage
-// TODO: describe how to run with Docker
+// TODO: Describe how to run with Docker
 
 1. Run the project
     ```sh
@@ -42,6 +42,5 @@ my-agenda-ui/
 │   ├── translations/
 │   ├── index.tsx
 │   ├── App.tsx
-├── .prettierrc
 ├── package.json
 ├── README.md
