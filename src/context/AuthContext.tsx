@@ -13,7 +13,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const logout = () => {
     AuthService.logout();
-    setIsAuthenticated(false);
+    setIsAuthenticated(true);
   };
 
   useEffect(() => {

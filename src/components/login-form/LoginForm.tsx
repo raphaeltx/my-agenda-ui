@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useIntl } from 'react-intl';
 import { TextField, Button, Box } from '@mui/material';
 import AuthService from '../../services/AuthService';
 import { useAuth } from '../../context/AuthContext';
 
 const LoginForm: React.FC = () => {
-  const [username, setUsername] = useState('');
+  const intl = useIntl();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      await AuthService.login(username, password);
+      await AuthService.login(email, password);
       login();
-      // Redirect to main page or show success message
+      
+      navigate("/home");
     } catch (error) {
-      // Handle login error
       console.error(error);
     }
   };
@@ -22,30 +26,33 @@ const LoginForm: React.FC = () => {
   return (
     <Box component="form" noValidate autoComplete="off">
       <TextField
-        label="Username"
-        variant="outlined"
+        label={intl.formatMessage({ id: 'login.emailLabel' })}
+        variant="standard"
         margin="normal"
         fullWidth
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={email}
+        size="small"
+        onChange={(e) => setEmail(e.target.value)}
       />
       <TextField
-        label="Password"
+        label={intl.formatMessage({ id: 'login.passwordLabel' })}
         type="password"
-        variant="outlined"
+        variant="standard"
         margin="normal"
         fullWidth
         value={password}
+        size="small"
         onChange={(e) => setPassword(e.target.value)}
       />
       <Button
-        variant="contained"
+        variant="outlined"
         color="primary"
         fullWidth
         onClick={handleLogin}
+        size="small"
         sx={{ mt: 2 }}
       >
-        Login
+        {intl.formatMessage({ id: 'login.loginButton' })}
       </Button>
     </Box>
   );

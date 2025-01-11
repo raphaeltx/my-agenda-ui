@@ -1,0 +1,12 @@
+{
+  "login.title": "My Agenda Bot",
+  "login.emailLabel": "E-mail",
+  "login.passwordLabel": "Password",
+  "login.loginButton": "Login",
+  
+  "notfoundPage.title": "Page Not Found",
+  "notfoundPage.description": "The page you're looking for doesn't exist or has been moved.",
+  "notfoundPage.returnHome": "Return Home",
+
+  "chatbot.inputPlaceholder": "Type your message..."
+}

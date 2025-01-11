@@ -1,0 +1,12 @@
+{
+  "login.title": "Minha Agenda Bot",
+  "login.emailLabel": "E-mail",
+  "login.passwordLabel": "Senha",
+  "login.loginButton": "Login",
+
+  "notfoundPage.title": "Página não encontrada",
+  "notfoundPage.description": "A página que você está procurando não existe ou foi movida.",
+  "notfoundPage.returnHome": "Voltar para a página inicial",
+
+  "chatbot.inputPlaceholder": "Digite sua mensagem..."
+}

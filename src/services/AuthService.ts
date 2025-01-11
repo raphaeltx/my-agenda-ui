@@ -1,13 +1,13 @@
 class AuthService {
     private isAuthenticated = false;
   
-    async login(username: string, password: string): Promise<void> {
+    async login(email: string, password: string): Promise<void> {
       
       // TODO: Implement login logic 
 
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (username === 'user' && password === 'password') {
+          if (email === 'admin' && password === 'admin') {
             this.isAuthenticated = true;
             resolve();
           } else {
