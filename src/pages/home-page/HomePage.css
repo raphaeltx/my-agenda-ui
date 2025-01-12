@@ -1,3 +1,16 @@
-body {
-    background-color: rgb(226, 226, 139) !important;
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .menu-settings {
+    position: fixed;
+    top: 20px;
+    left: -5px;
+    z-index: 1000;
   }
+
+  .chat-bot {
+    /* padding-bottom: 40px !important; */
+  }
+}

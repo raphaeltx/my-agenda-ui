@@ -1,14 +1,10 @@
-body {
-  background-color: #F0F0F0 !important;
-}
-
 .login-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 30px;
+  padding-top: 50px;
 
   .logo-title-container {
     display: flex;
@@ -24,7 +20,6 @@ body {
     .login-title {
       font-size: 1rem;
       font-weight: bold;
-      color: #99a3d8;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
@@ -39,21 +34,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  .logo-image {
-    max-width: 40px;
-  }
-
-  .login-title {
-    font-size: 1.5rem;
-  }
-}
-
 @media (max-width: 480px) {
-  .logo-image {
-    max-width: 30px;
-  }
-
   .login-title {
     font-size: 1.2rem;
   }

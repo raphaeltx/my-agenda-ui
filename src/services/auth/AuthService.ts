@@ -1,4 +1,6 @@
-class AuthService {
+import { IAuthService } from "../../domain/interfaces/IAuthService";
+
+class AuthService implements IAuthService {
     private isAuthenticated = false;
   
     async login(email: string, password: string): Promise<void> {
@@ -18,6 +20,8 @@ class AuthService {
     }
   
     logout(): void {
+      // TODO: Implement logout logic
+
       this.isAuthenticated = false;
     }
   

@@ -1,0 +1,31 @@
+.chat-bot-input-field-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  padding: 10px !important;
+  padding-left: 20px !important;
+  padding-top: 15px !important;
+
+  .chat-bot-input-field {
+    color: var(--secondary-color) !important;
+    font-weight: bold;
+    flex-grow: 1;
+    background-color: transparent !important;
+    border: none;
+    outline: none;
+    resize: none;
+  }
+
+  .chat-bot-input-field::placeholder {
+    color: var(--secondary-color) !important;
+  }
+
+  .chat-bot-input-icon-button {
+    padding-top: 0px !important;
+
+    .chat-bot-input-icon {
+      color: var(--secondary-color) !important;
+    }
+  }
+}

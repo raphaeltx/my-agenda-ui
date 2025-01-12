@@ -34,7 +34,6 @@ My Agenda UI is a React-based user interface to help you manage your daily agend
 ```
 my-agenda-ui/
 ├── src/
-│   ├── assets/
 │   ├── components/
 │   ├── context/
 │   ├── pages/

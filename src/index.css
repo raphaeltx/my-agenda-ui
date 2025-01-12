@@ -1,14 +1,26 @@
+:root {
+  --primary-color: #000000;
+  --secondary-color: #08fa99;
+  --tertiary-color: #0e0d0d;
+  --quaternary-color: #ff1cff;
+  --quinary-color: #070606;
+  --senary-color: #58fcf9;
+}
+
 body {
   margin: 0;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Courier New", Courier, "Lucida Console", "Liberation Mono",
+    Menlo, Monaco, Consolas, "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Source Code Pro", "Fira Code", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--secondary-color) !important;
+  background-color: var(--tertiary-color) !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: "Courier New", Courier, "Lucida Console", "Liberation Mono",
+    Menlo, Monaco, Consolas, "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Source Code Pro", "Fira Code", monospace;
 }

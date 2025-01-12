@@ -11,7 +11,7 @@ function App() {
     <AuthProvider>
       <Router>
         <CssBaseline />
-        <Container maxWidth="sm">
+        <Container maxWidth="md">
           <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<ProtectedRoute element={<Navigate to="/home" />} redirectTo="/login" />} />

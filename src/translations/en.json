@@ -1,5 +1,6 @@
 {
-  "login.title": "My Agenda Bot",
+  "app.title": "My Agenda Bot",
+
   "login.emailLabel": "E-mail",
   "login.passwordLabel": "Password",
   "login.loginButton": "Login",
@@ -8,5 +9,9 @@
   "notfoundPage.description": "The page you're looking for doesn't exist or has been moved.",
   "notfoundPage.returnHome": "Return Home",
 
-  "chatbot.inputPlaceholder": "Type your message..."
+  "chatbot.inputPlaceholder": "Type your message...",
+
+  "menu.home": "Home",
+  "menu.item.logout": "Logout",
+  "menu.item.changePassword": "Change Password"
 }

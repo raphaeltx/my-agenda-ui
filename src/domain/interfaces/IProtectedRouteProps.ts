@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface ProtectedRouteProps {
+export interface IProtectedRouteProps {
   element: React.ReactElement;
   redirectTo: string;
 }

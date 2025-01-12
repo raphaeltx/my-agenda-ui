@@ -1,12 +1,17 @@
 {
-  "login.title": "Minha Agenda Bot",
+  "app.title": "Minha Agenda Bot",
+
   "login.emailLabel": "E-mail",
   "login.passwordLabel": "Senha",
-  "login.loginButton": "Login",
+  "login.loginButton": "Entrar",
 
   "notfoundPage.title": "Página não encontrada",
   "notfoundPage.description": "A página que você está procurando não existe ou foi movida.",
   "notfoundPage.returnHome": "Voltar para a página inicial",
 
-  "chatbot.inputPlaceholder": "Digite sua mensagem..."
+  "chatbot.inputPlaceholder": "Digite sua mensagem...",
+
+  "menu.home": "Início",
+  "menu.item.logout": "Sair",
+  "menu.item.changePassword": "Trocar senha"
 }
