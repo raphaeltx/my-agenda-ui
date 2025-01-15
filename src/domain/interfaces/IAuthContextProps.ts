@@ -1,5 +1,5 @@
 export interface IAuthContextProps {
-    isAuthenticated: boolean;
+    isAuthenticated?: boolean;
     login: (email: string, password: string) => void;
     logout: () => void;
   }

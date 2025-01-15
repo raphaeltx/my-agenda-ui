@@ -14,9 +14,17 @@ const ChatBotInput: React.FC<IChatBotInputProps> = ({
     setInputValue(e.target.value);
   };
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (e: React.FormEvent) => {
+    e.preventDefault();
     onButtonClick(inputValue);
     setInputValue("");
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleButtonClick(e);
+    }
   };
 
   return (
@@ -24,6 +32,7 @@ const ChatBotInput: React.FC<IChatBotInputProps> = ({
       <TextareaAutosize
         value={inputValue}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         placeholder={placeholder}
         className="chat-bot-input-field"
         minRows={1}

@@ -6,19 +6,18 @@ export class ChatBotService implements IChatBotService {
 
   async sendMessage(text: string): Promise<IChatBotMessage> {
     // TODO: Implement bot logic
-
-    const message: IChatBotMessage = {
-      id: new Date().toISOString(),
-      text,
-      timestamp: new Date(),
-      sender: "user",
-    };
-    
     const botMessage: IChatBotMessage = {
-      id: new Date().toISOString(),
+      id: this.messages.length + 2,
       text: `Bot response to: ${text}`,
       timestamp: new Date(),
       sender: "bot",
+    };
+    
+    const message: IChatBotMessage = {
+      id: this.messages.length + 1,
+      text,
+      timestamp: new Date(),
+      sender: "user",
     };
     
     this.messages.push(message);
@@ -27,8 +26,8 @@ export class ChatBotService implements IChatBotService {
     return message;
   }
 
-  async getMessages(): Promise<IChatBotMessage[]> {
+  async getLastMessage(): Promise<IChatBotMessage[]> {
     // TODO: Implement get messages logic
-    return this.messages;
+    return [...this.messages];
   }
 }

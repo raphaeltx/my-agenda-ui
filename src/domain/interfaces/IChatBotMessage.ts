@@ -1,5 +1,5 @@
 export interface IChatBotMessage {
-  id: string;
+  id: number;
   text: string;
   timestamp: Date;
   sender: "user" | "bot";

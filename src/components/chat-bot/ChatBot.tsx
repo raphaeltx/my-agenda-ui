@@ -1,30 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useIntl } from "react-intl";
 import { Box, Container } from "@mui/material";
 import ChatBotInput from "../chat-bot-input/ChatBotInput";
 import { ChatBotService } from "../../services/chat-bot/ChatBotService";
+import { IChatBotMessage } from "../../domain/interfaces/IChatBotMessage";
 import ChatBotMessage from "../chat-bot-message/ChatBotMessage";
 import "./ChatBot.css";
-import { IChatBotMessage } from "../../domain/interfaces/IChatBotMessage";
 
 const ChatBot: React.FC = () => {
-  const chatBotService = new ChatBotService();
   const intl = useIntl();
+  const chatBotServiceRef = useRef<ChatBotService>(new ChatBotService());
   const [messages, setMessages] = useState<IChatBotMessage[]>([]);
 
   const handleButtonClick = async (inputValue: string) => {
-    chatBotService.sendMessage(inputValue);
-    const updatedMessages = await chatBotService.getMessages();
-    setMessages(updatedMessages);
+    if (inputValue.trim()) {
+      await chatBotServiceRef.current.sendMessage(inputValue);
+      const updatedMessages = await chatBotServiceRef.current.getLastMessage();
+      setMessages(updatedMessages);
+    }
   };
-
-  useEffect(() => {
-    const fetchMessages = async () => {
-      const initialMessages = await chatBotService.getMessages();
-      setMessages(initialMessages);
-    };
-    fetchMessages();
-  }, []);
 
   return (
     <Container className="chat-bot-container">

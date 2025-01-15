@@ -4,7 +4,6 @@ class AuthService implements IAuthService {
     private isAuthenticated = false;
   
     async login(email: string, password: string): Promise<void> {
-      
       // TODO: Implement login logic 
 
       return new Promise((resolve, reject) => {
