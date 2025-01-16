@@ -4,6 +4,8 @@
   "login.emailLabel": "E-mail",
   "login.passwordLabel": "Senha",
   "login.loginButton": "Entrar",
+  "login.forgotPassword": "Esqueceu a senha?",
+  "login.newAccount": "Criar uma conta",
 
   "notfoundPage.title": "Página não encontrada",
   "notfoundPage.description": "A página que você está procurando não existe ou foi movida.",
@@ -13,5 +15,16 @@
 
   "menu.home": "Início",
   "menu.item.logout": "Sair",
-  "menu.item.changePassword": "Trocar senha"
+  "menu.item.changePassword": "Trocar senha",
+
+  "newUser.title": "Criar uma conta",
+  "newUser.userNameLabel": "Usuário",
+  "newUser.firstNameLabel": "Primeiro nome",
+  "newUser.lastNameLabel": "Sobrenome",
+  "newUser.phoneLabel": "Telefone",
+  "newUser.emailLabel": "E-mail",
+  "newUser.passwordLabel": "Senha",
+  "newUser.createAccountButton": "Criar conta",
+  "newUser.alreadyHaveAccount": "Já tem uma conta?",
+  "newUser.submitButton": "Enviar"
 }

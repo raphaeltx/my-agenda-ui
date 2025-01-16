@@ -10,6 +10,7 @@ import AuthenticatedRoute from "./components/authenticated-route/AuthenticatedRo
 import { AuthProvider } from "./context/AuthContext";
 import HomePage from "./pages/home-page/HomePage";
 import NotFoundPage from "./pages/not-found-page/NotFoundPage";
+import NewUser from "./components/new-user/NewUser";
 
 function App() {
   return (
@@ -31,9 +32,13 @@ function App() {
             <Route
               path="/home"
               element={
-                <AuthenticatedRoute element={<HomePage />} redirectTo="/login" />
+                <AuthenticatedRoute
+                  element={<HomePage />}
+                  redirectTo="/login"
+                />
               }
             />
+            <Route path="register" element={<NewUser />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Container>

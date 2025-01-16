@@ -1,37 +1,12 @@
-@import '../../index.css';
+@import "../../index.css";
 
-.custom-textfield {
-  .MuiInput-underline:before {
-    border-bottom: 1px solid var(--secondary-color) !important;
-  }
-  
-  .MuiInput-underline:hover:before {
-    border-bottom: 1px solid var(--secondary-color) !important;
-  }
+.new-account-link-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
 
-  .MuiInput-underline:after {
-    border-bottom: 1px solid var(--secondary-color) !important;
+  .new-account-link {
+    color: var(--senary-color);
+    text-align: center;
   }
-
-  .MuiInputLabel-root {
-    color: var(--secondary-color) !important;
-  }
-
-  .MuiInputLabel-root.Mui-focused {
-    color: var(--secondary-color) !important;
-  }
-
-  .MuiInputBase-root.MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
-    border-bottom: 1px solid var(--secondary-color) !important;
-  }
-
-  .MuiInputBase-input {
-    color: var(--secondary-color) !important;
-  }
-}
-
-.custom-button {
-  color: var(--secondary-color) !important;
-  border-color: var(--secondary-color) !important;
-  margin-top: 1.5rem !important;
 }

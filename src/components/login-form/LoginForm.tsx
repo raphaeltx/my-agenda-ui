@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useIntl } from "react-intl";
-import { TextField, Button, Box } from "@mui/material";
+import { TextField, Button, Box, Link } from "@mui/material";
 import { useAuth } from "../../context/AuthContext";
 import "./LoginForm.css";
 
@@ -44,6 +44,7 @@ const LoginForm: React.FC = () => {
         size="small"
         onChange={(e) => setPassword(e.target.value)}
       />
+
       <Button
         variant="outlined"
         fullWidth
@@ -53,6 +54,12 @@ const LoginForm: React.FC = () => {
       >
         {intl.formatMessage({ id: "login.loginButton" })}
       </Button>
+
+      <Box className="new-account-link-container">
+        <Link href="/register" variant="body2" className="new-account-link">
+          {intl.formatMessage({ id: "login.newAccount" })}
+        </Link>
+      </Box>
     </Box>
   );
 };

@@ -13,13 +13,13 @@ const NotFoundPage: React.FC = () => {
         <Typography variant="h4" component="h2" className="not-found-title">
           <FormattedMessage id="notfoundPage.title" />
         </Typography>
-        <Typography variant="body1" color="text.secondary" className="not-found-description">
+        <Typography variant="body1" className="not-found-description">
           <FormattedMessage id="notfoundPage.description" />
         </Typography>
         <Button
           variant="outlined"
           size="small"
-          className="not-found-button"
+          className="not-found-button custom-button"
           onClick={() => navigate('/home')}
         >
           <FormattedMessage id="notfoundPage.returnHome" />

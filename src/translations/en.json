@@ -4,6 +4,8 @@
   "login.emailLabel": "E-mail",
   "login.passwordLabel": "Password",
   "login.loginButton": "Login",
+  "login.forgotPassword": "Forgot Password?",
+  "login.newAccount": "Create an account",
   
   "notfoundPage.title": "Page Not Found",
   "notfoundPage.description": "The page you're looking for doesn't exist or has been moved.",
@@ -13,5 +15,16 @@
 
   "menu.home": "Home",
   "menu.item.logout": "Logout",
-  "menu.item.changePassword": "Change Password"
+  "menu.item.changePassword": "Change Password",
+
+  "newUser.title": "Create an account",
+  "newUser.userNameLabel": "User",
+  "newUser.emailLabel": "E-mail",
+  "newUser.firstNameLabel": "First Name",
+  "newUser.lastNameLabel": "Last Name",
+  "newUser.phoneLabel": "Phone",
+  "newUser.passwordLabel": "Password",
+  "newUser.createAccountButton": "Create Account",
+  "newUser.alreadyHaveAccount": "Already have an account?",
+  "newUser.submitButton": "Submit"
 }

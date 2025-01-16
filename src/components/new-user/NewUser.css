@@ -1,0 +1,17 @@
+@import "../../index.css";
+
+.new-user-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: var(--secondary-color) !important;
+
+  .form-title {
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+}
