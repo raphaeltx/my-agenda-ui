@@ -27,6 +27,8 @@
   "newUser.createAccountButton": "Criar conta",
   "newUser.alreadyHaveAccount": "Já tem uma conta?",
   "newUser.submitButton": "Enviar",
+  "newUser.successMessage": "Conta criada com sucesso",
+  "newUser.errorMessage": "Ocorreu um erro ao criar a conta",
 
   "validation.required": "Campo obrigatório",
   "validation.invalidEmail": "E-mail inválido",

@@ -93,13 +93,16 @@ const NewUser: React.FC = () => {
       const createdUser = await userService.createUser(formValues);
 
       notificationUtil.showNotification(
-        "User created successfully!",
+        intl.formatMessage({ id: "newUser.successMessage" }),
         "success"
       );
       navigate("/home");
     } catch (errors) {
       if (errors instanceof UserServiceError) {
-        notificationUtil.showNotification(errors.message, "error");
+        notificationUtil.showNotification(
+          intl.formatMessage({ id: "newUser.errorMessage" }),
+          "error"
+        );
       } else {
         const formattedErrors: any = {};
         const formattedTouched: any = {};

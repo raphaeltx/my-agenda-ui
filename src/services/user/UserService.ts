@@ -11,7 +11,7 @@ class UserService implements IUserService {
       const response = await axios.post<IUser>(`${this.apiUrl}/users`, user);
       return response.data;
     } catch (error) {
-      throw new UserServiceError("Failed to create user", error);
+      throw new UserServiceError("Failed to create user: ", error);
     }
   }
 }
