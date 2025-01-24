@@ -11,6 +11,7 @@ import { AuthProvider } from "./context/AuthContext";
 import HomePage from "./pages/home-page/HomePage";
 import NotFoundPage from "./pages/not-found-page/NotFoundPage";
 import NewUser from "./components/new-user/NewUser";
+import Notification from "./components/notification/Notification";
 
 function App() {
   return (
@@ -41,6 +42,8 @@ function App() {
             <Route path="register" element={<NewUser />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
+
+          <Notification />
         </Container>
       </Router>
     </AuthProvider>

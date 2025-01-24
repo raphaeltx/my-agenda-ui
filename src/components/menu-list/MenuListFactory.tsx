@@ -1,10 +1,10 @@
 import { TbPasswordUser } from "react-icons/tb";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { IntlShape } from "react-intl";
-import { IMenuItem } from "../../domain/interfaces/IMenuItem";
-import { IAuthContextProps } from "../../domain/interfaces/IAuthContextProps";
+import { IMenuItem } from "../../domain/interfaces/entities/IMenuItem";
+import { IAuthContextProps } from "../../domain/interfaces/properties/IAuthContextProps";
 
-// TODO: refactor this code
+// TODO: Refactor
 
 class MenuListFactory {
   private intl: IntlShape;

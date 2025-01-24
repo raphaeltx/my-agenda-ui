@@ -39,9 +39,14 @@ my-agenda-ui/
 │   ├── context/
 │   ├── domain/
 │   │   ├── interfaces/
+│   │   │   ├── entities/
+│   │   │   ├── properties/
+│   │   ├── services/
+│   ├── errors/
 │   ├── pages/
 │   ├── services/
 │   ├── translations/
+│   ├── utils/
 │   ├── index.tsx
 │   ├── App.tsx
 ├── package.json

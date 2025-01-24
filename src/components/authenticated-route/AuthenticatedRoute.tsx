@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { IAuthenticatedRouteProps } from '../../domain/interfaces/IProtectedRouteProps';
+import { IAuthenticatedRouteProps } from '../../domain/interfaces/properties/IProtectedRouteProps';
 
 const AuthenticatedRoute: React.FC<IAuthenticatedRouteProps> = ({ element, redirectTo }) => {
   const { isAuthenticated } = useAuth();

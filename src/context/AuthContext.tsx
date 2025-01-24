@@ -6,7 +6,7 @@ import React, {
   useEffect,
 } from "react";
 import AuthService from "../services/auth/AuthService";
-import { IAuthContextProps } from "../domain/interfaces/IAuthContextProps";
+import { IAuthContextProps } from "../domain/interfaces/properties/IAuthContextProps";
 
 const AuthContext = createContext<IAuthContextProps | undefined>(undefined);
 

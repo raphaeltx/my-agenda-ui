@@ -1,160 +1,153 @@
-import React, { useState } from 'react';
-import { Box, TextField, Button, Typography } from '@mui/material';
-import { useIntl } from 'react-intl';
-import './NewUser.css';
+import React, { useState } from "react";
+import { Box, Button, Typography } from "@mui/material";
+import { useIntl } from "react-intl";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import PersonalInfoForm from "./PersonalInfoForm";
+import UserInfoForm from "./UserInfoForm";
+import { IUser } from "../../domain/interfaces/entities/IUser";
+import UserService from "../../services/user/UserService";
+import "./NewUser.css";
+import { notificationUtil } from "../../utils/notification";
+import { UserServiceError } from "../../errors/UserServiceError";
 
 const NewUser: React.FC = () => {
   const intl = useIntl();
-  const [formValues, setFormValues] = useState({
-    email: '',
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    userName: '',
-    password: '',
-  });
-  const [formErrors, setFormErrors] = useState({
-    email: '',
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    userName: '',
-    password: '',
+  const navigate = useNavigate();
+  const userService = new UserService();
+
+  const [formValues, setFormValues] = useState<IUser>({
+    user_name: "",
+    password: "",
+    person: {
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone: "",
+    },
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [errors, setErrors] = useState<any>({});
+  const [touched, setTouched] = useState<any>({});
+
+  const validationSchema = Yup.object().shape({
+    user_name: Yup.string().required(
+      intl.formatMessage({ id: "validation.required" })
+    ),
+    password: Yup.string()
+      .min(8, intl.formatMessage({ id: "validation.passwordLength" }))
+      .required(intl.formatMessage({ id: "validation.required" })),
+    person: Yup.object().shape({
+      first_name: Yup.string().required(
+        intl.formatMessage({ id: "validation.required" })
+      ),
+      last_name: Yup.string().required(
+        intl.formatMessage({ id: "validation.required" })
+      ),
+      email: Yup.string()
+        .email(intl.formatMessage({ id: "validation.invalidEmail" }))
+        .required(intl.formatMessage({ id: "validation.required" })),
+      phone: Yup.string().required(
+        intl.formatMessage({ id: "validation.required" })
+      ),
+    }),
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+    setTouched((prevTouched: any) => ({
+      ...prevTouched,
+      [name]: true,
+    }));
   };
 
-  const validateForm = () => {
-    let errors = { ...formErrors };
-    let isValid = true;
-
-    // Email validation
-    if (!formValues.email) {
-      errors.email = intl.formatMessage({ id: 'validation.required' });
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formValues.email)) {
-      errors.email = intl.formatMessage({ id: 'validation.invalidEmail' });
-      isValid = false;
-    } else {
-      errors.email = '';
-    }
-
-    // Password validation
-    if (!formValues.password) {
-      errors.password = intl.formatMessage({ id: 'validation.required' });
-      isValid = false;
-    } else if (formValues.password.length < 8) {
-      errors.password = intl.formatMessage({ id: 'validation.passwordLength' });
-      isValid = false;
-    } else {
-      errors.password = '';
-    }
-
-    // Required fields validation
-    ['firstName', 'lastName', 'phoneNumber', 'userName'].forEach((field) => {
-      if (!formValues[field as keyof typeof formValues]) {
-        errors[field as keyof typeof formErrors] = intl.formatMessage({ id: 'validation.required' });
-        isValid = false;
-      } else {
-        errors[field as keyof typeof formErrors] = '';
-      }
-    });
-
-    setFormErrors(errors);
-    return isValid;
+  const handlePersonChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      person: {
+        ...prevValues.person,
+        [name]: value,
+      },
+    }));
+    setTouched((prevTouched: any) => ({
+      ...prevTouched,
+      person: {
+        ...prevTouched.person,
+        [name]: true,
+      },
+    }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      // Handle form submission
-      console.log('Form submitted:', formValues);
+
+    try {
+      await validationSchema.validate(formValues, { abortEarly: false });
+      setErrors({});
+
+      const createdUser = await userService.createUser(formValues);
+
+      notificationUtil.showNotification(
+        "User created successfully!",
+        "success"
+      );
+      navigate("/home");
+    } catch (errors) {
+      if (errors instanceof UserServiceError) {
+        notificationUtil.showNotification(errors.message, "error");
+      } else {
+        const formattedErrors: any = {};
+        const formattedTouched: any = {};
+        (errors as Yup.ValidationError).inner.forEach((error: any) => {
+          formattedErrors[error.path] = error.message;
+          formattedTouched[error.path] = true;
+        });
+
+        setTouched(formattedTouched);
+        setErrors(formattedErrors);
+      }
     }
   };
 
   return (
-    <Box component="form" noValidate autoComplete="off" onSubmit={handleSubmit} className="new-user-form">
+    <Box
+      component="form"
+      noValidate
+      autoComplete="off"
+      className="new-user-form"
+      onSubmit={handleSubmit}
+    >
       <Typography variant="h5" className="form-title">
-        {intl.formatMessage({ id: 'newUser.title' })}
+        {intl.formatMessage({ id: "newUser.title" })}
       </Typography>
-      <TextField
-        label={intl.formatMessage({ id: 'newUser.emailLabel' })}
-        variant="standard"
-        margin="normal"
-        fullWidth
-        name="email"
-        className="custom-textfield"
-        value={formValues.email}
-        onChange={handleInputChange}
-        error={!!formErrors.email}
-        helperText={formErrors.email}
+
+      <PersonalInfoForm
+        values={formValues.person}
+        handleChange={handlePersonChange}
+        errors={errors}
+        touched={touched}
       />
-      <TextField
-        label={intl.formatMessage({ id: 'newUser.firstNameLabel' })}
-        variant="standard"
-        margin="normal"
-        fullWidth
-        name="firstName"
-        className="custom-textfield"
-        value={formValues.firstName}
-        onChange={handleInputChange}
-        error={!!formErrors.firstName}
-        helperText={formErrors.firstName}
+
+      <UserInfoForm
+        values={formValues}
+        handleChange={handleChange}
+        errors={errors}
+        touched={touched}
       />
-      <TextField
-        label={intl.formatMessage({ id: 'newUser.lastNameLabel' })}
-        variant="standard"
-        margin="normal"
+
+      <Button
+        variant="outlined"
         fullWidth
-        name="lastName"
-        className="custom-textfield"
-        value={formValues.lastName}
-        onChange={handleInputChange}
-        error={!!formErrors.lastName}
-        helperText={formErrors.lastName}
-      />
-      <TextField
-        label={intl.formatMessage({ id: 'newUser.phoneLabel' })}
-        variant="standard"
-        margin="normal"
-        fullWidth
-        name="phoneNumber"
-        className="custom-textfield"
-        value={formValues.phoneNumber}
-        onChange={handleInputChange}
-        error={!!formErrors.phoneNumber}
-        helperText={formErrors.phoneNumber}
-      />
-      <TextField
-        label={intl.formatMessage({ id: 'newUser.userNameLabel' })}
-        variant="standard"
-        margin="normal"
-        fullWidth
-        name="userName"
-        className="custom-textfield"
-        value={formValues.userName}
-        onChange={handleInputChange}
-        error={!!formErrors.userName}
-        helperText={formErrors.userName}
-      />
-      <TextField
-        label={intl.formatMessage({ id: 'newUser.passwordLabel' })}
-        type="password"
-        variant="standard"
-        margin="normal"
-        fullWidth
-        name="password"
-        className="custom-textfield"
-        value={formValues.password}
-        onChange={handleInputChange}
-        error={!!formErrors.password}
-        helperText={formErrors.password}
-      />
-      <Button variant="outlined" fullWidth type="submit" className="custom-button">
-        {intl.formatMessage({ id: 'newUser.submitButton' })}
+        type="submit"
+        size="small"
+        className="custom-button"
+      >
+        {intl.formatMessage({ id: "newUser.submitButton" })}
       </Button>
     </Box>
   );

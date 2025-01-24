@@ -26,5 +26,9 @@
   "newUser.passwordLabel": "Senha",
   "newUser.createAccountButton": "Criar conta",
   "newUser.alreadyHaveAccount": "Já tem uma conta?",
-  "newUser.submitButton": "Enviar"
+  "newUser.submitButton": "Enviar",
+
+  "validation.required": "Campo obrigatório",
+  "validation.invalidEmail": "E-mail inválido",
+  "validation.passwordLength": "A senha deve ter no mínimo 8 caracteres"
 }

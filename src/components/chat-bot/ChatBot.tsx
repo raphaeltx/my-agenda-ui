@@ -3,7 +3,7 @@ import { useIntl } from "react-intl";
 import { Box, Container } from "@mui/material";
 import ChatBotInput from "../chat-bot-input/ChatBotInput";
 import { ChatBotService } from "../../services/chat-bot/ChatBotService";
-import { IChatBotMessage } from "../../domain/interfaces/IChatBotMessage";
+import { IChatBotMessage } from "../../domain/interfaces/entities/IChatBotMessage";
 import ChatBotMessage from "../chat-bot-message/ChatBotMessage";
 import "./ChatBot.css";
 

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import "./ChatBotMessage.css";
-import { IChatBotMessageProps } from "../../domain/interfaces/IChatBotMessageProps";
+import { IChatBotMessageProps } from "../../domain/interfaces/properties/IChatBotMessageProps";
 
 const ChatBotMessage: React.FC<IChatBotMessageProps> = ({ messages }) => {
   // TODO: Fix messages order 

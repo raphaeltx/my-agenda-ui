@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { Container, IconButton, TextareaAutosize } from "@mui/material";
-import { IChatBotInputProps } from "../../domain/interfaces/IChatBotInputProps";
+import { IChatBotInputProps } from "../../domain/interfaces/properties/IChatBotInputProps";
 import "./ChatBotInput.css";
 
 const ChatBotInput: React.FC<IChatBotInputProps> = ({

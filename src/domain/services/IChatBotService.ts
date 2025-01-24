@@ -1,4 +1,4 @@
-import { IChatBotMessage } from "./IChatBotMessage";
+import { IChatBotMessage } from "../interfaces/entities/IChatBotMessage";
 
 export interface IChatBotService {
   sendMessage(text: string): Promise<IChatBotMessage>;

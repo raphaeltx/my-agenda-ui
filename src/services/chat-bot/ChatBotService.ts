@@ -1,5 +1,5 @@
-import { IChatBotMessage } from "../../domain/interfaces/IChatBotMessage";
-import { IChatBotService } from "../../domain/interfaces/IChatBotService";
+import { IChatBotMessage } from "../../domain/interfaces/entities/IChatBotMessage";
+import { IChatBotService } from "../../domain/services/IChatBotService";
 
 export class ChatBotService implements IChatBotService {
   private messages: IChatBotMessage[] = [];

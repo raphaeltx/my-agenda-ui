@@ -1,4 +1,4 @@
-import { IAuthService } from "../../domain/interfaces/IAuthService";
+import { IAuthService } from "../../domain/services/IAuthService";
 
 class AuthService implements IAuthService {
     private isAuthenticated = false;

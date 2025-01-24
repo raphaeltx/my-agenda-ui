@@ -26,5 +26,9 @@
   "newUser.passwordLabel": "Password",
   "newUser.createAccountButton": "Create Account",
   "newUser.alreadyHaveAccount": "Already have an account?",
-  "newUser.submitButton": "Submit"
+  "newUser.submitButton": "Submit",
+
+  "validation.required": "Required field",
+  "validation.invalidEmail": "Invalid e-mail",
+  "validation.passwordLength": "Password must have at least 8 characters"
 }

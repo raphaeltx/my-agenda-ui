@@ -8,8 +8,8 @@ import {
   ListItemText,
 } from "@mui/material";
 import { useIntl } from "react-intl";
-import { IMenuItem } from "../../domain/interfaces/IMenuItem";
-import { IMenuListProps } from "../../domain/interfaces/IMenuListProps";
+import { IMenuItem } from "../../domain/interfaces/entities/IMenuItem";
+import { IMenuListProps } from "../../domain/interfaces/properties/IMenuListProps";
 import MenuListFactory from "./MenuListFactory";
 import { useAuth } from "../../context/AuthContext";
 
