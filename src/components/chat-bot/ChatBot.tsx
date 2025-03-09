@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useIntl } from "react-intl";
 import { Box, Container } from "@mui/material";
 import ChatBotInput from "../chat-bot-input/ChatBotInput";

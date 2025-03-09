@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import AuthService from "../services/auth/AuthService";
 import { IAuthContextProps } from "../domain/interfaces/properties/IAuthContextProps";
+import { ILogin } from "../domain/interfaces/entities/ILogin";
 
 const AuthContext = createContext<IAuthContextProps | undefined>(undefined);
 
@@ -17,8 +18,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     AuthService.getAuthStatus()
   );
 
-  const login = async (email: string, password: string) => {
-    await AuthService.login(email, password);
+  const login = async (login: ILogin) => {
+    await AuthService.login(login);
     setIsAuthenticated(true);
   };
 

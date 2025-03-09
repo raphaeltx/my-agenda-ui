@@ -90,18 +90,16 @@ const NewUser: React.FC = () => {
       await validationSchema.validate(formValues, { abortEarly: false });
       setErrors({});
 
-      const createdUser = await userService.createUser(formValues);
+      await userService.createUser(formValues);
 
-      notificationUtil.showNotification(
-        intl.formatMessage({ id: "newUser.successMessage" }),
-        "success"
+      notificationUtil.success(
+        intl.formatMessage({ id: "newUser.successMessage" })
       );
       navigate("/home");
     } catch (errors) {
       if (errors instanceof UserServiceError) {
-        notificationUtil.showNotification(
-          intl.formatMessage({ id: "newUser.errorMessage" }),
-          "error"
+        notificationUtil.error(
+          intl.formatMessage({ id: "newUser.errorMessage" })
         );
       } else {
         const formattedErrors: any = {};

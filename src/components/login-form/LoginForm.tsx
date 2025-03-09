@@ -4,6 +4,7 @@ import { useIntl } from "react-intl";
 import { TextField, Button, Box, Link } from "@mui/material";
 import { useAuth } from "../../context/AuthContext";
 import "./LoginForm.css";
+import { notificationUtil } from "../../utils/notification";
 
 const LoginForm: React.FC = () => {
   const intl = useIntl();
@@ -14,10 +15,12 @@ const LoginForm: React.FC = () => {
 
   const handleLogin = async () => {
     try {
-      await login(email, password);
+      await login({ email, password });
+      notificationUtil.success(intl.formatMessage({ id: "login.successMessage" }));
+
       navigate("/home");
     } catch (error) {
-      console.error(error);
+      notificationUtil.error(intl.formatMessage({ id: "login.errorMessage" }));
     }
   };
 

@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { IntlProvider, messages } from "./translations/intlConfig";
+import "./config/axiosConfig";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

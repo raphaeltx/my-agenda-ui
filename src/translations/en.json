@@ -6,6 +6,8 @@
   "login.loginButton": "Login",
   "login.forgotPassword": "Forgot Password?",
   "login.newAccount": "Create an account",
+  "login.errorMessage": "Error while trying to login",
+  "login.successMessage": "Login successful",
   
   "notfoundPage.title": "Page Not Found",
   "notfoundPage.description": "The page you're looking for doesn't exist or has been moved.",

@@ -1,5 +1,6 @@
 import { AlertColor } from "@mui/material";
 import { INotificationProps } from "../domain/interfaces/properties/INotificationProps";
+import { info } from "console";
 
 type NotificationHandler = (options: INotificationProps) => void;
 
@@ -10,7 +11,19 @@ class NotificationUtil {
     this.handler = handler;
   }
 
-  showNotification(message: string, severity: AlertColor = "error") {
+  success(message: string) {
+    this.showNotification(message, "success");
+  }
+
+  error(message: string) {
+    this.showNotification(message, "error");
+  }
+
+  info(message: string) {
+    this.showNotification(message, "info");
+  }
+
+  private showNotification(message: string, severity: AlertColor = "error") {
     if (this.handler) {
       this.handler({ open: true, message, severity });
     }

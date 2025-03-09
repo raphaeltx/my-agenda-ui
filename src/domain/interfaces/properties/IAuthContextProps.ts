@@ -1,5 +1,7 @@
+import { ILogin } from "../entities/ILogin";
+
 export interface IAuthContextProps {
     isAuthenticated?: boolean;
-    login: (email: string, password: string) => void;
+    login: (login: ILogin) => void;
     logout: () => void;
   }

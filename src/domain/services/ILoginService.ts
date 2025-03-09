@@ -1,7 +1,5 @@
 import { ILogin } from "../interfaces/entities/ILogin";
 
-export interface IAuthService {
+export interface ILoginService {
   login(login: ILogin): Promise<void>;
-  logout(): void;
-  getAuthStatus(): boolean;
 }
